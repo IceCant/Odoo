@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="student_tree">
+        <field name="name">student.tree</field>
+        <field name="model">edu_student.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="dob"/>
+                <field name="vaccine_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="student_form">
+        <field name="name">student.form</field>
+        <field name="model">edu_student.student</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <button name="generate" string="Generate ClassName" type="object" class="btn-primary"/>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="fname" string="First Name"/>
+                            <field name="lname" string="Last Name"/>
+                            <field name="name" string="Full Name"/>
+                        </group>
+                        <group>
+                            <field name="gender" string="Gender"/>
+                            <field name="dob" string="Date of Birth"/>
+                            <field name="age" string="Age" force_save="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Vaccine" name="vaccine">
+                            <field name="vaccine_id" string="Vaccine"/>
+                        </page>
+                        <page string="Parent" name="parent">
+                            <field name="parent_id" string="Parent"/>
+                            <field name="parent_contact_id" string="Parent Contact"/>
+                        </page>
+                        <page string="Class Generation" name="class_name">
+                            <field name="class_name_id" string="Class Generation"/>
+                        </page>
+                        <page string="other"></page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="student_test_action">
+        <field name="name">Student Action</field>
+        <field name="res_model">edu_student.student</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+    <menuitem id="edu_student_root"
+              name="edu student"
+              sequence="10"/>
+    <menuitem id="student_root"
+              name="Students"
+              parent="edu_student_root"
+              sequence="10"/>
+    <menuitem id="student"
+              name="Students view"
+              parent="student_root"
+              action="student_test_action"
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="parent_tree">
+        <field name="name">parent.tree</field>
+        <field name="model">edu_student.parent</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="parent_contact_id"/>
+                <field name="rmark"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="parent_form">
+        <field name="name">parent.form</field>
+        <field name="model">edu_student.parent</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="parent_contact_id"/>
+                    <field name="rmark"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="parent_test_action">
+        <field name="name">Parent Action</field>
+        <field name="res_model">edu_student.parent</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+   <menuitem id="parent"
+          name="parent view"
+          parent="config"
+          action="parent_test_action"
+          sequence="10"/>
+</odoo>

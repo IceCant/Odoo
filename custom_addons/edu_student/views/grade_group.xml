@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="grade_group_tree">
+        <field name="name">grade_group.tree</field>
+        <field name="model">edu_student.grade_group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="rmark"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="grade_group_form">
+        <field name="name">grade_group.form</field>
+        <field name="model">edu_student.grade_group</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="rmark"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="grade_group_test_action">
+        <field name="name">grade_group Action</field>
+        <field name="res_model">edu_student.grade_group</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+    <menuitem id="grade_group"
+          name="grade_group view"
+          parent="config"
+          action="grade_group_test_action"
+          sequence="10"/>
+</odoo>

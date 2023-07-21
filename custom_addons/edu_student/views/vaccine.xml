@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="vaccine_tree">
+        <field name="name">vaccine.tree</field>
+        <field name="model">edu_student.vaccine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="idate"/>
+                <field name="vaccine_type_id"/>
+                <field name="rmark"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="vaccine_form">
+        <field name="name">vaccine.form</field>
+        <field name="model">edu_student.vaccine</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="idate"/>
+                    <field name="vaccine_type_id"/>
+                    <field name="rmark"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="vaccine_test_action">
+        <field name="name">Vaccine Action</field>
+        <field name="res_model">edu_student.vaccine</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem id="config"
+              name="Config view"
+              parent="edu_student_root"
+              sequence="10"/>
+
+    <menuitem id="vaccine"
+              name="vaccine view"
+              parent="config"
+              action="vaccine_test_action"
+              sequence="10"/>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="class_type_tree">
+        <field name="name">class_type.tree</field>
+        <field name="model">edu_student.class_type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="rmark"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="class_type_form">
+        <field name="name">class_type.form</field>
+        <field name="model">edu_student.class_type</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="rmark"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="class_type_test_action">
+        <field name="name">class_type Action</field>
+        <field name="res_model">edu_student.class_type</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+    <menuitem id="class_type"
+          name="class_type view"
+          parent="config"
+          action="class_type_test_action"
+          sequence="10"/>
+</odoo>

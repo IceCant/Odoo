@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+     <record model="ir.ui.view" id="parent_contact_tree">
+        <field name="name">parent_contact.tree</field>
+        <field name="model">edu_student.parent_contact</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="r_type"/>
+                <field name="p_number"/>
+                <field name="email"/>
+                <field name="student_id"/>
+                <field name="parent_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="parent_contact_form">
+        <field name="name">parent_contact.form</field>
+        <field name="model">edu_student.parent_contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="fname"/>
+                    <field name="lname"/>
+                    <field name="name"/>
+                    <field name="r_type"/>
+                </group>
+                <group>
+                    <field name="p_number"/>
+                    <field name="email"/>
+                    <field name="student_id"/>
+                    <field name="parent_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="parent_contact_test_action">
+        <field name="name">Parent Contact Action</field>
+        <field name="res_model">edu_student.parent_contact</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+    <menuitem id="parent_contact"
+          name="parent contact view"
+          parent="config"
+          action="parent_contact_test_action"
+          sequence="10"/>
+</odoo>
